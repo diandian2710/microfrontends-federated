@@ -2,8 +2,8 @@ const AWS = require("aws-sdk");
 const crypto = require('crypto');
 const { CodePipelineClient, StartPipelineExecutionCommand } = require("@aws-sdk/client-codepipeline");
 
-const region = "us-east-1";
-const secretName = `cdkv2-a-mfe-secret-github`;
+const region = 'us-east-1'
+const secretName = `cdk-v2-a-mfe-secret-github`
 
 const client = new CodePipelineClient({
     region: region
