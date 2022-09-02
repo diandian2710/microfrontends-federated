@@ -27,26 +27,28 @@ exports.handler = async (event) => {
     }
 
 
-    const isValid = validateGitHubAuthentication(event, secret);
+    const isValid = validateGitHubAuthentication(event, secret)
 
     if (!isValid) {
         return {
             statusCode: 401,
             body: JSON.stringify('Unauthorized api caller.'),
-        };
+        }
     }
-    const body = JSON.parse(event.body);
+    const body = JSON.parse(event.body)
 
-    const microFrontendNames = findMicroFrontendNames(body["commits"][0]);
+    console.log('commits events:', event.body[ 'commits' ][ 0 ])
+
+    const microFrontendNames = findMicroFrontendNames(body[ 'commits' ][ 0 ])
 
     if (!microFrontendNames || !microFrontendNames.length) {
         return {
             statusCode: 404,
             body: JSON.stringify('Folder cannot be found'),
-        };
+        }
     }
 
-    const codePipelinePromises = [];
+    const codePipelinePromises = []
 
     microFrontendNames.forEach(microFrontendName => {
         const params = {
