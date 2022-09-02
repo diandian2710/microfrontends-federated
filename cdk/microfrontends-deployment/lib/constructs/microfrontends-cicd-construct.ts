@@ -130,11 +130,11 @@ const buildCodeDeployAction = (
   mfe: string
 ): codepipeline_actions.S3DeployAction => {
   return new codepipeline_actions.S3DeployAction({
-    actionName: "S3Deploy",
+    actionName: 'S3Deploy',
     bucket,
     input: inputArtifact,
     extract: true,
-    objectKey: `${mfe}`,
+    objectKey: `${mfe}/`,
   });
 };
 
