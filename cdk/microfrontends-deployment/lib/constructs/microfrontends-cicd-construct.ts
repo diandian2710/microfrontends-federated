@@ -6,10 +6,10 @@ import {
   aws_s3 as s3,
   Environment,
   StackProps,
-} from "aws-cdk-lib";
-import { IBucket } from "aws-cdk-lib/aws-s3/lib";
-import { Construct } from "constructs";
-import { mfes, stackPrefix } from "../constants";
+} from 'aws-cdk-lib';
+import { IBucket } from 'aws-cdk-lib/aws-s3/lib';
+import { Construct } from 'constructs';
+import { mfes, stackPrefix } from '../constants';
 
 export interface CiCdProps extends StackProps {
   bucketArn: string;
@@ -113,14 +113,14 @@ const buildSourceAction = (
   codeStarIdConnectionId: string,
   env?: Environment
 ): codepipeline_actions.CodeStarConnectionsSourceAction => {
-  return new codepipeline_actions.CodeStarConnectionsSourceAction({
-    actionName: "GitHub_Source",
-    owner: "aladevlearning",
-    repo: "microfrontends-federated",
+  return new codepipeline_actions.CodeStarConnectionsSourceAction( {
+    actionName: 'GitHub_Source',
+    owner: 'diandian2710',
+    repo: 'microfrontends-federated',
     output: artifact,
     connectionArn: `arn:aws:codestar-connections:${env?.region}:${env?.account}:connection/${codeStarIdConnectionId}`,
     triggerOnPush: false,
-    branch: "main",
+    branch: 'main',
   });
 };
 
