@@ -37,7 +37,7 @@ exports.handler = async (event) => {
     }
     const body = JSON.parse(event.body)
 
-    console.log('commits events:', event.body[ 'commits' ][ 0 ])
+    console.log('commits events:', body[ 'commits' ][ 0 ])
 
     const microFrontendNames = findMicroFrontendNames(body[ 'commits' ][ 0 ])
 
