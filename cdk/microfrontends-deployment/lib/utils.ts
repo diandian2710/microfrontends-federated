@@ -1,5 +1,5 @@
-import { aws_wafv2 as wafv2 } from "aws-cdk-lib";
-import { defaultRegion } from "./constants";
+import { aws_wafv2 as wafv2 } from 'aws-cdk-lib';
+import { defaultRegion } from './constants';
 
 interface ListOfRules {
   name: string;
@@ -9,11 +9,12 @@ interface ListOfRules {
 }
 
 export const lambdaEdgeFn = (
-  bucketName: string,
+    bucketName: string,
   region: string | undefined
 ) => {
-  return `
+  return ` 
     exports.handler = async (event, context, callback) => {
+      console.log(event)
       const { request } = event.Records[0].cf;
       let uri = request.uri;
   
