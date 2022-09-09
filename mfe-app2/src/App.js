@@ -4,7 +4,7 @@ import './styles/App.scss'
 
 const App = () => (
   <div>
-    <h1>First Micro-frontend testsetstse2342344t</h1>
+    <h1>First Micro-frontend asdf</h1>
     <Widget/>
   </div>
 )
