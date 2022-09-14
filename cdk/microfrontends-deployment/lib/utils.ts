@@ -15,7 +15,7 @@ export const lambdaEdgeFn = (
   return ` 
     exports.handler = async (event, context, callback) => {
       console.log(event)
-      const { request } = event.Records[0].cf;
+      const { request } = event.Records[0].cf.request;
       let uri = request.uri;
   
       if (uri === '' || uri === '/' || uri.indexOf("mfe-app1") !== -1 || uri.indexOf("mfe-app2") !== -1 || uri.indexOf("mfe-app3") !== -1) {
